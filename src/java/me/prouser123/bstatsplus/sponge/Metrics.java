@@ -1,4 +1,4 @@
-package org.bstats.sponge;
+package me.prouser123.bstatsplus.sponge;
 
 import com.google.gson.JsonObject;
 import org.spongepowered.api.plugin.PluginContainer;

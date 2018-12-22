@@ -1,4 +1,4 @@
-package org.bstats.sponge;
+package me.prouser123.bstatsplus.sponge;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -143,10 +143,19 @@ public class Metrics2 implements Metrics {
     // The constructor is not meant to be called by the user.
     // The instance is created using Dependency Injection (https://docs.spongepowered.org/master/en/plugin/injection.html)
     @Inject
-    private Metrics2(PluginContainer plugin, Logger logger, @ConfigDir(sharedRoot = true) Path configDir) {
+    private Metrics2(PluginContainer plugin, Logger logger, @ConfigDir(sharedRoot = true) Path configDir, Boolean... debug) {
         this.plugin = plugin;
         this.logger = logger;
         this.configDir = configDir;
+        
+        // Log to Console if the last parameter is true (debug)
+        try {
+        	if (debug[0] == true) {
+            	logger.info("[bStatsPlus Sponge 1.4] Starting bStats for plugin " + plugin.getName());
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+        	return;
+        }
 
         Sponge.getEventManager().registerListeners(plugin, this);
     }
