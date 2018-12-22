@@ -1,4 +1,4 @@
-package org.bstats.bungeecord;
+package me.prouser123.bstatsplus.bungee;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -76,9 +76,24 @@ public class Metrics {
     // A list with all custom charts
     private final List<CustomChart> charts = new ArrayList<>();
 
-    public Metrics(Plugin plugin) {
+    /**
+     * Class constructor.
+     * 
+     * @param plugin The plugin which stats should be submitted.
+     * @param debug If true, will log to the console.
+     */
+    public Metrics(Plugin plugin, Boolean... debug) {
         this.plugin = plugin;
-
+        
+        // Log to Console if the second parameter is true (logOnStart)
+        try {
+        	if (debug[0] == true) {
+            	plugin.getProxy().getLogger().log(Level.INFO, "[bStatsPlus Bungee 1.4] Starting bStats for plugin " + plugin.getDescription().getName());
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+        	return;
+        }
+        
         try {
             loadConfig();
         } catch (IOException e) {
