@@ -91,7 +91,7 @@ public class Metrics {
             	plugin.getProxy().getLogger().log(Level.INFO, "[bStatsPlus Bungee 1.4] Starting bStats for plugin " + plugin.getDescription().getName());
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-        	return;
+        	// Debug boolean not specified, continue
         }
         
         try {

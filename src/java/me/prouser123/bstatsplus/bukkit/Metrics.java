@@ -87,7 +87,7 @@ public class Metrics {
             	plugin.getServer().getLogger().log(Level.INFO, "[bStatsPlus 1.4] Starting bStats for plugin " + plugin.getName());
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-        	return;
+        	// Debug boolean not specified, continue
         }
 
         // Get the config file

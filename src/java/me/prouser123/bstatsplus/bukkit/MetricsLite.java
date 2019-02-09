@@ -86,7 +86,7 @@ public class MetricsLite {
             	plugin.getServer().getLogger().log(Level.INFO, "[bStatsPlus 1.4] Starting bStatsLite for plugin " + plugin.getName());
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-        	return;
+        	// Debug boolean not specified, continue
         }
         
         // Get the config file

@@ -149,7 +149,7 @@ public class MetricsLite2 implements Metrics {
             	logger.info("[bStatsPlus Sponge 1.4] Starting bStats for plugin " + plugin.getName());
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-        	return;
+        	// Debug boolean not specified, continue
         }
 
         Sponge.getEventManager().registerListeners(plugin, this);
